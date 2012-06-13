@@ -1,0 +1,13 @@
+﻿<Window x:Class="TestKeypad.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TextBox PreviewMouseDown="textBox1_PreviewMouseDown" Height="34" HorizontalAlignment="Left" Margin="168,30,0,0" VerticalAlignment="Top" Width="134"  />
+        <Label Content="Click inside the textbox:" Height="28" HorizontalAlignment="Left" Margin="168,7,0,0" VerticalAlignment="Top" />
+        <TextBox PreviewMouseDown="textBox2_PreviewMouseDown" Height="34" HorizontalAlignment="Left" Margin="169,120,0,0" Name="textBox2" VerticalAlignment="Top" Width="134" />
+        <Label Content="Click inside the textbox:" Height="28" HorizontalAlignment="Left" Margin="169,97,0,0" VerticalAlignment="Top" />
+        <Label Content="Keypad value:" Height="28" HorizontalAlignment="Left" Margin="85,35,0,0" VerticalAlignment="Top" />
+        <Label Content="Keyboard value:" Height="28" HorizontalAlignment="Left" Margin="76,124,0,0" VerticalAlignment="Top" />
+    </Grid>
+</Window>

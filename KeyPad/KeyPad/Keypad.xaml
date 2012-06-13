@@ -1,0 +1,62 @@
+﻿<Window x:Class="KeyPad.Keypad"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		Title="MainWindow" Height="313" Width="299" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+	<Window.Resources>
+		<DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="1" Direction="-90" BlurRadius="3" />
+		<Style TargetType="Label">
+			<Setter Property="FontSize" Value="22"/>
+			<Setter Property="Label.Effect" Value="{StaticResource DropShadowEffect}"/>
+		</Style>
+		<LinearGradientBrush x:Key="IPhoneSteelBackground" EndPoint="0.5,1.272" StartPoint="0.5,0">
+			<GradientStop Color="#FF9097A3" Offset="0"/>
+			<GradientStop Color="#FF444D5B" Offset="1"/>
+		</LinearGradientBrush>
+	
+		<Style TargetType="Button">
+			<EventSetter Event="Click" Handler="button_Click" />
+			<Setter Property="Margin" Value="4"/>
+			<Setter Property="Button.Effect" Value="{StaticResource DropShadowEffect}"/>
+			<Setter Property="FontSize" Value="22"/>
+			<Setter Property="Background" Value="WhiteSmoke"/>
+			<Setter Property="RenderTransform">
+				<Setter.Value>
+					<!-- Workaround for ATI video cards that don't render good with dropshadoweffect-->
+					<RotateTransform Angle="0.00000000001"/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>  
+	<Grid Background="{DynamicResource IPhoneSteelBackground}">
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>   		
+		<Button Grid.Row="1" Grid.Column="0" BorderThickness="1" BorderBrush="Gray" CommandParameter="NUMPAD7" >7</Button>
+		<Button Grid.Row="1" Grid.Column="1" CommandParameter="NUMPAD8"  BorderThickness="1" Content="8" />
+		<Button Grid.Row="1" Grid.Column="2" CommandParameter="NUMPAD9"  Content="9" />
+		<Button Grid.Row="1" Grid.Column="3" CommandParameter="BACK" >
+				<Path Stretch="Fill" Width="36" Height="24" Data="F1M555.0371,274.4893L552.7871,276.7383L549.9861,273.9373L547.1991,276.7243L545.1131,274.6393L547.9001,271.8523L545.0101,268.9603L547.2601,266.7113L550.1501,269.6023L552.8921,266.8613L554.9761,268.9463L552.2361,271.6883z M555.3751,264.0003L544.8751,264.0003C543.1251,264.1253,535.0001,270.7503,535.0001,272.2503C535.0001,273.7503,543.1251,279.3753,544.8751,279.5003L555.3751,279.5003C558.8751,279.5003,559.3751,277.7093,559.3751,275.5003L559.3751,268.0003C559.3751,265.7913,558.7501,264.0003,555.3751,264.0003" Fill="#FF333333"/>
+			</Button>
+		<Button Grid.Row="2" Grid.Column="0"  x:Name="button9" CommandParameter="NUMPAD4"  Content="4"/>
+		<Button Grid.Row="2" Grid.Column="1" CommandParameter="NUMPAD5" Content="5" />
+		<Button Grid.Row="2" Grid.Column="2" CommandParameter="NUMPAD6" Content="6" />        
+		<Button Grid.Row="3" Grid.Column="0" CommandParameter="NUMPAD1" Content="1"/>
+		<Button Grid.Row="3" Grid.Column="1" CommandParameter="NUMPAD2" Content="2"/>
+		<Button Grid.Row="3" Grid.Column="2" CommandParameter="NUMPAD3" Content="3" />
+		<Button Grid.Row="2" Grid.Column="3" Grid.RowSpan="3" CommandParameter="RETURN" Content="Enter"/>
+		<Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  CommandParameter="NUMPAD0" Content="0" />
+		<Button Grid.Row="4" Grid.Column="2" CommandParameter="DECIMAL"	Content="." />		
+		<Label Grid.Column="0" Grid.ColumnSpan="3"  Content="{Binding Result}" HorizontalContentAlignment="Right" Background="WhiteSmoke" Margin="4"/>		
+		<Button x:Name="buttonEsc" Grid.Row="0" Grid.Column="3"	CommandParameter="ESC" Click="button_Click" Content="Esc"/>
+	</Grid>
+</Window>
